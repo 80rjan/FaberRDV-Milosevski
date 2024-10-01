@@ -1,0 +1,46 @@
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem var(--padding-page-horizontal);
+    padding-bottom: 0.5rem;
+    align-items: center;
+}
+
+.footerContent {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerLinkWrapper {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 3rem;
+}
+
+.footerLink {
+    display: inline-block;  /* NEED THIS FOR HOVER */
+    text-decoration: none;
+    color: var(--text-color-black);
+    transition: transform 250ms ease-in-out;
+    font-size: 1.1rem;
+}
+
+.footerLink:hover {
+    transform: scale(1.2);
+}
+
+.footer > hr {
+    width: 100%;
+    height: 2px;
+    border: none;
+    background: var(--gradient-color);
+}
+
+.footerWatermark {
+    font-size: 0.8rem;
+}

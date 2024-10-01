@@ -1,0 +1,65 @@
+
+.ourWork {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding-page-vertical) var(--padding-page-horizontal);
+    padding-top: 2rem;
+    gap: var(--gap-title);
+}
+
+.ourWorkTextWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 10%;
+}
+
+.ourWorkText {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-content);
+}
+
+.ourWorkButtonWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.ourWorkButtonWrapper > button {
+    border: none;
+    padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+    width: fit-content;
+}
+
+.ourWorkButtonWrapper > button:first-child {
+    background: var(--gradient-color);
+    border-radius: var(--button-border-radius);
+    transition: transform 250ms ease-in-out;
+}
+
+.ourWorkButtonWrapper > button:first-child:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.ourWorkButtonWrapper > button:last-child {
+    border: 3px solid;
+    border-image: var(--gradient-color) 1;
+    background: none;
+    transition: transform 250ms ease-in-out;
+}
+
+.ourWorkButtonWrapper > button:last-child:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.ourWorkButtonWrapper > button:last-child > * {
+    color: #000092;
+}
+
+.ourWorkButtonWrapper > button > *{
+    font-size: var(--button-text);
+}

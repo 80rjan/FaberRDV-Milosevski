@@ -1,0 +1,26 @@
+
+.corePrincipals {
+    display: flex;
+    gap: var(--gap-title);
+    flex-direction: column;
+    padding: var(--padding-page-vertical) var(--padding-page-horizontal);
+}
+.principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*gap: var(--gap-title);*/
+}
+.principal > p {
+    width: 70%;
+    margin-left: var(--gap-title);
+}
+.principal > h1 {
+    margin-right: auto;
+}
+.principal > div {
+    height: 100%;
+    width: 0.2rem;
+    background: var(--gradient-color);
+    border-radius: var(--button-border-radius);
+}

@@ -1,0 +1,51 @@
+
+::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.6rem;
+}
+
+::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 0.5rem;
+    border: 3px solid #f1f1f1;
+}
+
+/* Customize the scrollbar on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.textAndImageSlider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15%;
+    padding: var(--padding-page-vertical) var(--padding-page-horizontal);
+    overflow: hidden;
+}
+
+.textAndImageSlider__textWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-content);
+}
+
+.textAndImageSlider__imageWrapper {
+    min-width: 35%;
+    aspect-ratio: 7/8;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    gap: var(--gap-content);
+}
+
+.textAndImageSlider__imageWrapper img {
+    height: 100%;
+    width: 80%;
+    object-fit: cover;
+    flex-shrink: 0;
+}

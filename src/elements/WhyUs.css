@@ -1,0 +1,21 @@
+
+.whyUs {
+    padding: var(--padding-page-vertical) var(--padding-page-horizontal);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-title);
+    background: var(--gradient-color);
+    color: var(--text-color-white);
+}
+
+.reasonsWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5rem;
+}
+.reasonsWrapper > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-content);
+}

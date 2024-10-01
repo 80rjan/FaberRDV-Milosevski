@@ -1,0 +1,30 @@
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-title);
+    padding: var(--padding-page-vertical) var(--padding-page-horizontal);
+}
+
+.timeline > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap-title);
+}
+
+.timelineTextWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7rem;
+    padding: var(--gap-content) 0;
+}
+
+.timelineLine {
+    height: 100%;
+    width: 0.2rem;
+    background: var(--gradient-color);
+    border-radius: var(--button-border-radius);
+}

@@ -1,0 +1,36 @@
+
+.contactCTA {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem var(--padding-page-horizontal);
+    background: var(--gradient-color);
+    gap: 10%
+}
+
+.contactCTA > h3 {
+    color: var(--text-color-white);
+    font-weight: 600;
+}
+
+.contactCTAButton {
+    border: none;
+    border-radius: var(--button-border-radius);
+    background: var(--text-color-white);
+    transition: transform 250ms ease-in-out;
+    text-wrap: nowrap;
+    padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+}
+
+.contactCTAButton:hover {
+    transform: scale(0.9);
+}
+
+.contactCTAButton > * {
+    font-size: var(--button-text);
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}

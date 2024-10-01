@@ -1,0 +1,102 @@
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 2rem;
+    margin: 0;
+    background: var(--background-color);
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.20);
+
+    transition: all 300ms ease-in-out;
+}
+
+.navSticky {
+    position: sticky;
+    top: 0;
+
+    transition: all 300ms ease-in-out;
+}
+.navLogo {
+    display: flex;
+    gap: 0.5rem;
+    /*flex-wrap: wrap;*/
+    color: var(--gradient-color);
+    text-decoration: none;
+    align-items: center;
+}
+.navLogo > h3 {
+    line-height: 1.1;
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.navigationLinkWrapper {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 4rem;
+}
+.navLink {
+    display: inline-block;  /* NEED THIS FOR HOVER */
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: inherit;
+    transition: color 250ms ease-in-out, scale 250ms ease-in-out, transform 250ms ease-in-out;
+}
+.navLink:hover {
+    color: #000092;
+    transform: scale(0.9);
+}
+.navBtn {
+    background: var(--gradient-color);
+    border: none;
+    padding: var(--button-padding-vertical) 2rem;
+    transition: transform 250ms ease-in-out;
+    border-radius: var(--button-border-radius);
+}
+.navBtn:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+.navBtn > * {
+    color: var(--text-color-white);
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+.navMenuBtn {
+    border: none;
+    background: none;
+    transition: transform 250ms ease-in-out;
+    width: fit-content;
+}
+
+.navMenuBtn:active {
+    transform: scale(0.9);
+}
+
+.navMenu {
+    position: fixed;
+    height: 100%;
+    /*width: 30%;*/
+    padding: 1rem var(--padding-page-vertical);
+    right: 0;
+    z-index: 999;
+    display: flex;
+    background: var(--background-color);
+    opacity: 0.9;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: var(--gap-content);
+}
+
+.navMenu > .navigationLinkWrapper {
+    flex-direction: column;
+    align-items: flex-end;
+    width: fit-content;
+}

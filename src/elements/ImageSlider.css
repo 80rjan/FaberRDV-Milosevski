@@ -1,0 +1,101 @@
+.sliderWrapper {
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /*aspect-ratio: 5 / 2;*/
+    overflow: hidden;
+
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sliderDarkener {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.sliderContent {
+    display: flex;
+    transition: transform 500ms ease-out;
+}
+
+.sliderItem {
+    flex: 0 0 100%; /* Each item takes full width of the slider */
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 8rem 0;
+}
+
+.sliderItem img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    z-index: 0;
+}
+
+.sliderText {
+    /*margin: 0 var(--padding-page-horizontal);*/
+    padding-left: var(--padding-page-horizontal);
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-content);
+    color: var(--text-color-white);
+    z-index: 2;
+}
+.sliderText button {
+    border: none;
+    width: 40%;
+    padding: var(--button-padding-vertical) 0;
+    background: var(--text-color-white);
+    border-radius: var(--button-border-radius);
+    transition: transform 250ms ease-in-out;
+}
+.sliderText button:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+.sliderText button > * {
+    color: #000092;
+    text-decoration: none;
+    font-size: var(--button-text);
+    /*font-weight: 600;*/
+}
+
+
+.circleWrapper {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 50%;
+    translate: -50%;
+    gap: 0.5rem;
+    display: flex;
+    z-index: 2;
+}
+
+.circleWrapper > button {
+    background: none;
+    border: none;
+    padding: 0;
+    width: 1rem;
+    height: 1rem;
+    transition: scale 100ms ease-in-out;
+}
+
+.circleWrapper > button:hover {
+    scale: 1.2;
+}
+
+.circleWrapper > button > * {
+    stroke: none;
+    height: 100%;
+    width: 100%;
+}
