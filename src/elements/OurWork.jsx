@@ -22,12 +22,8 @@ export default function OurWork() {
                 </div>
             </div>
             <div className='ourWorkButtonWrapper'>
-                <button>
-                    <Link to='/molds'>Learn more about our molds</Link>
-                </button>
-                <button>
-                    <Link to='/products'>Learn more about products created by our molds</Link>
-                </button>
+                <Link to='/molds' className='Link'>Learn more about our molds</Link>
+                <Link to='/products' className='Link'>Learn more about products created by our molds</Link>
             </div>
         </section>
     )

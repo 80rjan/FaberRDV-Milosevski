@@ -8,8 +8,8 @@ export default function About() {
     return (
         <section style={{
             display: "flex",
-            width: "100%",
             flexDirection: "column",
+            width: "100%",
         }}>
             <AboutUsFacts/>
             <CorePrincipals />

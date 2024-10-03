@@ -24,3 +24,25 @@
     background: var(--gradient-color);
     border-radius: var(--button-border-radius);
 }
+
+@media screen and (max-width: 1440px) {
+    .principal > p {
+        width: 60%;
+        margin-left: var(--gap-title);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .principal {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--gap-content);
+    }
+    .principal > p {
+        width: 100%;
+        margin-left: 0;
+    }
+    .principal > div {
+        display: none;
+    }
+}

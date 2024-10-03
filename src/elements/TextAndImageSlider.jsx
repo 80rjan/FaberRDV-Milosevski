@@ -1,7 +1,28 @@
 
 import './textAndImageSlider.css'
+import {useEffect, useState} from "react";
 
 export default function TextAndImageSlider({ title, text, images, sliderIsRight }) {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [isSliderIsRight, setIsSliderIsRight] = useState(sliderIsRight);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        if (windowWidth <= 767) {
+            setIsSliderIsRight(true);
+        } else {
+            setIsSliderIsRight(sliderIsRight);
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <section
@@ -10,7 +31,7 @@ export default function TextAndImageSlider({ title, text, images, sliderIsRight 
                 {paddingBottom: sliderIsRight && '2rem', paddingTop: !sliderIsRight && '2rem'}
             }
         >
-            {sliderIsRight &&
+            {isSliderIsRight &&
                 <div className="textAndImageSlider__textWrapper">
                     <h2>{title}</h2>
                     <p>{text}</p>
@@ -18,13 +39,13 @@ export default function TextAndImageSlider({ title, text, images, sliderIsRight 
             }
             <div
                 className='textAndImageSlider__imageWrapper'
-                style={{direction: sliderIsRight ? 'ltf' : 'rtl'}}
+                style={{direction: isSliderIsRight ? 'ltr' : 'rtl'}}
             >
                 {images.map((image, i) => (
                     <img src={image} key={i} alt='slider with images'/>
                 ))}
             </div>
-            {!sliderIsRight &&
+            {!isSliderIsRight &&
                 <div className="textAndImageSlider__textWrapper">
                     <h2>{title}</h2>
                     <p>{text}</p>

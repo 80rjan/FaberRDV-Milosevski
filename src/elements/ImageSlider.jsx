@@ -2,7 +2,7 @@
 import slider1 from '../assets/slider1.jpg';
 import slider2 from '../assets/slider2.jpg';
 import slider3 from '../assets/slider3.jpg';
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 
 import './ImageSlider.css';
@@ -28,28 +28,52 @@ const TEXT = [
 
 export default function ImageSlider() {
     const [imageIndex, setImageIndex] = useState(0);
+    const touchStartX = useRef(0);
+    const touchEndX = useRef(0);
 
+    // Automatic slide transition every 10 seconds
     useEffect(() => {
         const interval = setInterval(() => {
-            setImageIndex((prevIndex) => (prevIndex + 1) % IMAGES.length); // Loop back to 0 after the last image
+            setImageIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
         }, 10000);
-
-        return () => clearInterval(interval); // Cleanup the interval on component unmount
+        return () => clearInterval(interval);
     }, [imageIndex]);
 
+    // Function to handle swipe
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+        touchEndX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        const deltaX = touchEndX.current - touchStartX.current;
+        if (deltaX > 50) {
+            // Swipe right
+            setImageIndex((prevIndex) => (prevIndex === 0 ? IMAGES.length - 1 : prevIndex - 1));
+        } else if (deltaX < -50) {
+            // Swipe left
+            setImageIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
+        }
+    };
+
     return (
-        <section className='sliderWrapper'>
+        <section
+            className='sliderWrapper'
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
             <div className="sliderContent" style={{ width: `${IMAGES.length * 100}%`, transform: `translateX(${-100 * imageIndex}%)` }}>
                 {IMAGES.map((image, index) => (
-                    <div className='sliderItem' key={index} style={{width: `${100 / IMAGES.length}%`, backgroundImage: `url(${image.url})`}}>
-                        <div className='sliderDarkener'/>
-                        {/*<img src={image.url} alt={image.alt}/>*/}
-                        <div  className='sliderText'>
+                    <div className='sliderItem' key={index} style={{ width: `${100 / IMAGES.length}%`, backgroundImage: `url(${image.url})` }}>
+                        <div className='sliderDarkener' />
+                        <div className='sliderText'>
                             <h2>{TEXT[index].title}</h2>
                             <p>{TEXT[index].text}</p>
-                            <button>
-                                <Link to='/about'>Read more</Link>
-                            </button>
+                            <Link to='/about' className='Link'>Read more</Link>
                         </div>
                     </div>
                 ))}

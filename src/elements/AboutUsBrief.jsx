@@ -1,6 +1,7 @@
 
 import './AboutUsBrief.css'
 import injectionMoldNet from '../assets/injectionMoldNet.png';
+import brothers from '../assets/2brothers.jpg';
 import {Link} from "react-router-dom";
 
 export default function AboutUsBrief() {
@@ -14,12 +15,10 @@ export default function AboutUsBrief() {
                     Everyday work is based on usage of international CAD/CAM/CAE design methods supported by our professional team.
                     With the customized approach to each project (injection plastic molds, blow molds, processing metal sheet molds,
                     plastic products, etc.) we ensure that we exceed expectations every time.</p>
-                <button className='aboutUsBriefButton'>
-                    <Link to='/about' >Learn more</Link>
-                </button>
+                <Link to='/about' className='Link'>Learn more</Link>
             </div>
             <div className='aboutUsBriefImageWrapper'>
-                <img src={injectionMoldNet} alt='Injection Mold Image'/>
+                <img src={brothers} alt='Injection Mold Image'/>
             </div>
         </section>
     )

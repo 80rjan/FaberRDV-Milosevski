@@ -1,4 +1,5 @@
 .navigation {
+
     display: flex;
     justify-content: space-between;
     padding: 0.3rem 2rem;
@@ -23,6 +24,10 @@
     color: var(--gradient-color);
     text-decoration: none;
     align-items: center;
+}
+.navLogo > img {
+    width: 4rem;
+    aspect-ratio: 1/1;
 }
 .navLogo > h3 {
     line-height: 1.1;
@@ -71,32 +76,46 @@
 .navMenuBtn {
     border: none;
     background: none;
-    transition: transform 250ms ease-in-out;
+    transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
     width: fit-content;
+    cursor: pointer;
 }
 
-.navMenuBtn:active {
-    transform: scale(0.9);
+.navMenuBtn.menuIconActive {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+.navMenuBtn.xIconActive {
+    transform: rotate(180deg);
+    transition: transform 700ms ease-in-out;
 }
 
 .navMenu {
     position: fixed;
+    right: -100%;
+    top: 0;
     height: 100%;
-    /*width: 30%;*/
-    padding: 1rem var(--padding-page-vertical);
-    right: 0;
+    padding: 2rem 2rem 0 var(--padding-page-vertical);
     z-index: 999;
     display: flex;
     background: var(--background-color);
-    opacity: 0.9;
+    opacity: 0.95;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
     gap: var(--gap-content);
+    transition: right 400ms ease-in-out;
 }
+
+.navMenu.active {
+    right: 0;
+}
+
 
 .navMenu > .navigationLinkWrapper {
     flex-direction: column;
     align-items: flex-end;
     width: fit-content;
+    gap: 3rem;
 }

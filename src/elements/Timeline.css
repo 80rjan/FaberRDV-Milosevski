@@ -25,6 +25,13 @@
 .timelineLine {
     height: 100%;
     width: 0.2rem;
+    flex-shrink: 0;
     background: var(--gradient-color);
     border-radius: var(--button-border-radius);
+}
+
+@media screen and (max-width: 1440px) {
+    .timeline > div {
+        gap: 2rem;
+    }
 }

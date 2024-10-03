@@ -33,6 +33,7 @@ export default function Products() {
         <section style={{
             display: "flex",
             flexDirection: "column",
+            width: '100%',
         }}>
             <TextAndImageSlider title={titleInjectedMolds} text={textInjectedMolds} images={imagesInjectedMolds}
                                 sliderIsRight={true} />

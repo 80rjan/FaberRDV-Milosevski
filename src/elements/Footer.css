@@ -2,7 +2,7 @@
 .footer {
     display: flex;
     flex-direction: column;
-    padding: 3rem var(--padding-page-horizontal);
+    padding: 3rem 3rem;
     padding-bottom: 0.5rem;
     align-items: center;
 }
@@ -43,4 +43,15 @@
 
 .footerWatermark {
     font-size: 0.8rem;
+}
+
+@media screen and (max-width: 767px) {
+    .footer {
+        padding-bottom: 2rem;
+    }
+    .footerLinkWrapper {
+        align-items: flex-end;
+        flex-direction: column;
+        gap: var(--gap-content);
+    }
 }

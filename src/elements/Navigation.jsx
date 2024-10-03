@@ -1,9 +1,8 @@
-
 import './Navigation.css';
 import Logo from '../assets/Logo.svg';
-import {Link, useLocation} from "react-router-dom";
-import {useEffect, useState} from "react";
-import {Menu, X} from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Navigation() {
     const location = useLocation();
@@ -25,10 +24,7 @@ export default function Navigation() {
             setDeviceType(getDeviceType(window.innerWidth));
         };
 
-        // Listen for resize events
         window.addEventListener('resize', handleResize);
-
-        // Cleanup the event listener when the component unmounts
         return () => {
             window.removeEventListener('resize', handleResize);
         };
@@ -39,7 +35,7 @@ export default function Navigation() {
             const navbar = document.getElementById('navigation');
             const height = navbar.clientHeight;
             if (height) {
-                if (window.scrollY > height*3) {
+                if (window.scrollY > height * 3) {
                     navbar.classList.add('navSticky');
                 } else {
                     navbar.classList.remove('navSticky');
@@ -48,8 +44,6 @@ export default function Navigation() {
         };
 
         window.addEventListener('scroll', handleScroll);
-
-        // Cleanup event listener on component unmount
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -57,54 +51,61 @@ export default function Navigation() {
 
     return (
         <nav id='navigation' className="navigation">
-            <Link to='/' className='navLogo'>
+            <Link to='/' className='navLogo' onClick={() => setMenuActive(false)}>
                 <img src={Logo} alt="FaberRDV Milosevski" />
-                <h3>FaberRDV <br/> Milosevski</h3>
+                <h3>FaberRDV <br /> Milosevski</h3>
             </Link>
             {
-                deviceType==='Desktop' ?
-                <ul className='navigationLinkWrapper'>
-                    <li>
-                        <Link
-                            to="/products"
-                            className='navLink'
-                            style={location.pathname === '/products' ? {color: '#000092'} : {}}
-                        >Products</Link>
-                    </li>
-                    <li>
-                        <Link
-                            to='/molds'
-                            className='navLink'
-                            style={location.pathname === '/molds' ? {color: '#000092'} : {}}
-                        >Molds</Link>
-                    </li>
-                    <li>
-                        <Link
-                            to='/about'
-                            className='navLink'
-                            style={location.pathname === '/about' ? {color: '#000092'} : {}}
-                        >About</Link>
-                    </li>
-                    <li>
-                        <button className='navBtn'>
-                            <Link to='/contact'>Contact Us</Link>
+                deviceType === 'Desktop' ? (
+                    <ul className='navigationLinkWrapper'>
+                        <li>
+                            <Link
+                                to="/products"
+                                className='navLink'
+                                style={location.pathname === '/products' ? { color: '#000092' } : {}}
+                            >Products</Link>
+                        </li>
+                        <li>
+                            <Link
+                                to='/molds'
+                                className='navLink'
+                                style={location.pathname === '/molds' ? { color: '#000092' } : {}}
+                            >Molds</Link>
+                        </li>
+                        <li>
+                            <Link
+                                to='/about'
+                                className='navLink'
+                                style={location.pathname === '/about' ? { color: '#000092' } : {}}
+                            >About</Link>
+                        </li>
+                        <li>
+                            <button className='navBtn'>
+                                <Link to='/contact'>Contact Us</Link>
+                            </button>
+                        </li>
+                    </ul>
+                ) : (
+                    <>
+                        <button
+                            className={`navMenuBtn ${menuActive ? 'menuIconActive' : ''}`}
+                            onClick={() => setMenuActive(!menuActive)}
+                        >
+                            <Menu color='#000092' size="2rem" />
                         </button>
-                    </li>
-                </ul> :
-                    !menuActive ?
-                        <button className='navMenuBtn' onClick={() => setMenuActive(true)}>
-                            <Menu color='#000092' size="2rem"/>
-                        </button> :
-                        <div className='navMenu'>
-                            <button className='navMenuBtn' onClick={() => setMenuActive(false)}>
-                                <X color='#000092' size="2rem"/>
+                        <div className={`navMenu ${menuActive ? 'active' : ''}`}>
+                            <button
+                                className={`navMenuBtn ${menuActive ? 'xIconActive' : ''}`}
+                                onClick={() => setMenuActive(false)}
+                            >
+                                <X color='#000092' size="2rem" />
                             </button>
                             <ul className='navigationLinkWrapper'>
                                 <li>
                                     <Link
                                         to="/products"
                                         className='navLink'
-                                        style={location.pathname === '/products' ? {color: '#000092'} : {}}
+                                        style={location.pathname === '/products' ? { color: '#000092' } : {}}
                                         onClick={() => setMenuActive(false)}
                                     >Products</Link>
                                 </li>
@@ -112,7 +113,7 @@ export default function Navigation() {
                                     <Link
                                         to='/molds'
                                         className='navLink'
-                                        style={location.pathname === '/molds' ? {color: '#000092'} : {}}
+                                        style={location.pathname === '/molds' ? { color: '#000092' } : {}}
                                         onClick={() => setMenuActive(false)}
                                     >Molds</Link>
                                 </li>
@@ -120,7 +121,7 @@ export default function Navigation() {
                                     <Link
                                         to='/about'
                                         className='navLink'
-                                        style={location.pathname === '/about' ? {color: '#000092'} : {}}
+                                        style={location.pathname === '/about' ? { color: '#000092' } : {}}
                                         onClick={() => setMenuActive(false)}
                                     >About</Link>
                                 </li>
@@ -128,13 +129,15 @@ export default function Navigation() {
                                     <Link
                                         to='/contact'
                                         className='navLink'
-                                        style={location.pathname === '/contact' ? {color: '#000092'} : {}}
+                                        style={location.pathname === '/contact' ? { color: '#000092' } : {}}
                                         onClick={() => setMenuActive(false)}
                                     >Contact Us</Link>
                                 </li>
                             </ul>
                         </div>
+                    </>
+                )
             }
         </nav>
-    )
+    );
 }

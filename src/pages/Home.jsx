@@ -12,6 +12,7 @@ export default function Home() {
         <section style={{
             display: "flex",
             flexDirection: "column",
+            width: '100%',
         }}>
             <ImageSlider />
             <OurWork />

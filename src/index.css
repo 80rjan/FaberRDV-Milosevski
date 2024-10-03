@@ -27,6 +27,11 @@
   padding: 0;
 }
 
+html, body {
+  width: 100%;
+  /*overflow-x: hidden; !* Temporarily hides horizontal overflow *!*/
+}
+
 :root {
   font-family: 'Montserrat', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: #eee;
@@ -43,7 +48,7 @@
   --gap-title: 4rem;
   --gap-content: 1rem;
   --button-text: 1.3rem;
-  --button-padding-vertical: 0.5rem;
+  --button-padding-vertical: 0.4rem;
   --button-padding-horizontal: 4rem;
   --button-border-radius: 2px;
 
@@ -71,22 +76,34 @@ h3 {
 }
 body {
   margin: 0;
+  /*width: 100vh;*/
+  /*overflow: hidden;*/
 }
 button > * {
   text-decoration: none;
   color: var(--text-color-white);
+}
+.Link {
+  text-decoration: none;
+  color: var(--text-color-white);
+  font-weight: 500;
 }
 
 @media screen and (max-width: 1440px) {
   :root {
     font-size: 16px;
 
-    --padding-page-horizontal: 7rem;
+    --padding-page-horizontal: 5rem;
+    --button-padding-horizontal: 3rem;
+    --gap-title: 3rem;
   }
 }
 
 @media screen and (max-width: 767px) {
   :root {
     font-size: 14px;
+
+    --padding-page-horizontal: 2rem;
+    /*--gap-title: 2rem;*/
   }
 }

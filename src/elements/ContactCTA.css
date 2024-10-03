@@ -6,7 +6,7 @@
     align-items: center;
     padding: 3rem var(--padding-page-horizontal);
     background: var(--gradient-color);
-    gap: 10%
+    gap: 10%;
 }
 
 .contactCTA > h3 {
@@ -14,23 +14,31 @@
     font-weight: 600;
 }
 
-.contactCTAButton {
+.contactCTA > .Link {
     border: none;
     border-radius: var(--button-border-radius);
     background: var(--text-color-white);
     transition: transform 250ms ease-in-out;
     text-wrap: nowrap;
     padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+    font-size: var(--button-text);
+    color: var(--gradient-color);
+    text-align: center;
 }
 
-.contactCTAButton:hover {
+.contactCTA > .Link:hover {
     transform: scale(0.9);
 }
 
-.contactCTAButton > * {
-    font-size: var(--button-text);
-    background: var(--gradient-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+@media screen and (max-width: 1440px){
+    .contactCTA {
+        gap: 5%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .contactCTA {
+        flex-direction: column;
+        gap: var(--gap-content);
+        text-align: center;
+    }
 }
