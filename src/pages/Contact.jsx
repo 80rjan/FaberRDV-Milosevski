@@ -1,7 +1,14 @@
+import ContactForm from "../elements/ContactForm.jsx";
 
 export default function Contact() {
 
-    return(
-        <h1>Contact</h1>
+    return (
+        <section style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+        }}>
+            <ContactForm/>
+        </section>
     )
 }
