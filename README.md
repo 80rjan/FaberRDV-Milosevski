@@ -1,8 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is an informative website developed for FaberRDV Milosevski, a company specializing in the production of molded products. 
+The website serves as a platform to highlight the company's high-quality products, manufacturing processes, and industry expertise, providing visitors with an easy-to-navigate space to learn more about the business.
+The website is built with ReactJs
